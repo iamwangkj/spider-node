@@ -1,6 +1,6 @@
 const jsonfile = require('jsonfile')
 
-function save (filename, data) {
+function saveJson (data, filename) {
   jsonfile.writeFile(filename, data, (err) => {
     err && console.error(err)
   })
@@ -8,5 +8,5 @@ function save (filename, data) {
 }
 
 module.exports = {
-  save
+  saveJson
 }

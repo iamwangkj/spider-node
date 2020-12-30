@@ -8,7 +8,7 @@ const path = require('path')
 // 通过id获取一个用户信息
 const getUserInfo = (id) => {
   const userInfoUrl = `https://api.bilibili.com/x/space/acc/info?mid=${id}&jsonp=jsonp`
-  const funsUrl = `https://api.bilibili.com/x/space/acc/info?mid=${id}&jsonp=jsonp`
+  const funsUrl = `hhttps://api.bilibili.com/x/relation/stat?vmid==${id}&jsonp=jsonp`
   const likeUrl = `https://api.bilibili.com/x/space/upstat?mid=${id}&jsonp=jsonp`
   const instance = axios.create({
     // baseURL: 'https://api.bilibili.com/x/space/',
