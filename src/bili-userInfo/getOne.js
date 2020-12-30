@@ -36,7 +36,7 @@ async function getUserInfo (id) {
     logInfo(`id=${id} get fail`)
   }
 }
-getUserInfo(7072472)
+// getUserInfo(7072472)
 
 // 批量
 async function getList (startId, endId) {
@@ -51,9 +51,9 @@ async function getList (startId, endId) {
       console.log(`全部完成，用时${useTime}秒`)
       saveJson(all, '1.json')
     } else {
-      const res = await Promise.all([
+      // 一次获取20个用户信息，3秒一次
+      const resChunk = await Promise.all([
         getUserInfo(id),
-        getUserInfo(++id),
         getUserInfo(++id),
         getUserInfo(++id),
         getUserInfo(++id),
@@ -74,7 +74,7 @@ async function getList (startId, endId) {
         getUserInfo(++id),
         getUserInfo(++id)
       ])
-      // console.log('res=', res)
+      console.log('一次获取到的数量=', resChunk.length)
       // all.push(res)
       ++id
     }
@@ -85,4 +85,4 @@ async function getList (startId, endId) {
 async function main () {
   getList(800, 1400)
 }
-// main()
+main()
